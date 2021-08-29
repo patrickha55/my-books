@@ -17,6 +17,7 @@ namespace my_books_data.Configurations
             builder.Property(b => b.Title).HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(b => b.Description).IsRequired();
             builder.Property(b => b.Rate).HasDefaultValue(0);
+            builder.Property(b => b.IsRead).HasDefaultValue(false);
             builder.Property(b => b.Genre).HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(b => b.CoverUrl).HasColumnType("nvarchar").IsRequired();
             builder.Property(b => b.DateAdded).HasColumnType("Date").HasDefaultValue(DateTime.Now).IsRequired();

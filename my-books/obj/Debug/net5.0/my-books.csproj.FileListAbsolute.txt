@@ -48,7 +48,6 @@ C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.0\my-books.AssemblyInfoInputs.cache
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.0\my-books.AssemblyInfo.cs
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.0\my-books.csproj.CoreCompileInputs.cache
-C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.0\my-books.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.0\my-books.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.0\staticwebassets\my-books.StaticWebAssets.Manifest.cache
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.0\staticwebassets\my-books.StaticWebAssets.xml
@@ -61,3 +60,5 @@ C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\obj\Debug\net5.0\my-books.genruntimeconfig.cache
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\bin\Debug\net5.0\Humanizer.dll
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\bin\Debug\net5.0\my-books-application.dll
+C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\my-books\bin\Debug\net5.0\my-books-application.pdb

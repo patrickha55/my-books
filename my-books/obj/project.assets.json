@@ -1582,6 +1582,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "my-books-application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "my-books-data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/my-books-application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/my-books-application.dll": {}
+        }
+      },
       "my-books-data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -5947,6 +5960,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "my-books-application/1.0.0": {
+      "type": "project",
+      "path": "../my-books-application/my-books-application.csproj",
+      "msbuildProject": "../my-books-application/my-books-application.csproj"
+    },
     "my-books-data/1.0.0": {
       "type": "project",
       "path": "../my-books-data/my-books-data.csproj",
@@ -5958,6 +5976,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 5.0.9",
       "Swashbuckle.AspNetCore >= 5.6.3",
       "microsoft.entityframeworkcore.sqlserver >= 5.0.9",
+      "my-books-application >= 1.0.0",
       "my-books-data >= 1.0.0"
     ]
   },
@@ -5988,6 +6007,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books-application\\my-books-application.csproj": {
+              "projectPath": "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books-application\\my-books-application.csproj"
+            },
             "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books-data\\my-books-data.csproj": {
               "projectPath": "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books-data\\my-books-data.csproj"
             }

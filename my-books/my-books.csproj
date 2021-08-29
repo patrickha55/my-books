@@ -15,10 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\my-books-application\my-books-application.csproj" />
     <ProjectReference Include="..\my-books-data\my-books-data.csproj" />
   </ItemGroup>
 
