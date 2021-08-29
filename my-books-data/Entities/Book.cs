@@ -11,7 +11,7 @@ namespace my_books_data.Entities
 
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
-        public bool? IsRead { get; set; }
+        public bool IsRead { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime? DateRead { get; set; }

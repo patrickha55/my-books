@@ -14,9 +14,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Extensions\BookEx\" />
-    <Folder Include="Extensions\PublisherEx\" />
-  </ItemGroup>
-
 </Project>

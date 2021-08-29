@@ -5,11 +5,13 @@ namespace my_books_data.DTOs.PublisherDTOs
 {
     public class PublisherDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 
     public class PublisherWithBooksDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public IList<string> BookTitles { get; set; }
     }
@@ -21,7 +23,7 @@ namespace my_books_data.DTOs.PublisherDTOs
     
     public class UpdatePublisherDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-        public IList<int> BookIds { get; set; }
     }
 }
