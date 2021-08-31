@@ -46,7 +46,7 @@ namespace my_books.Controllers
 
             if (publisher is null) return NotFound();
 
-            return Ok(publisher);
+            return Ok(publisher.AsDto());
         }
 
         // GET api/<PublishersController>/publisher-with-books/5
@@ -68,7 +68,7 @@ namespace my_books.Controllers
 
             await publisherService.CreateAsync(publisher);
 
-            return CreatedAtAction(nameof(Get), new { Id = publisher.Id }, publisher);
+            return CreatedAtAction(nameof(Get), new { Id = publisher.Id }, publisher.AsDto());
         }
 
         // PUT api/<PublishersController>/5
@@ -83,7 +83,7 @@ namespace my_books.Controllers
 
             await publisherService.UpdateAsync(publisher);
 
-            return CreatedAtAction(nameof(Get), new { Id = publisher.Id }, publisher);
+            return CreatedAtAction(nameof(Get), new { Id = publisher.Id }, publisher.AsDto());
         }
 
         // DELETE api/<PublishersController>/5
