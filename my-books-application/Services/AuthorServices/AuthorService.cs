@@ -85,6 +85,7 @@ namespace my_books_application.Services.AuthorServices
             var authors = await applicationContext.Authors
                 .Select(a => new AuthorWithBooksDTO()
                 {
+                    Id = a.Id,
                     FirstName = a.FirstName,
                     LastName = a.LastName,
                     BookTitles = a.Book_Authors.Select(ba => ba.Book.Title).ToList()
@@ -104,6 +105,7 @@ namespace my_books_application.Services.AuthorServices
         {
             var author = applicationContext.Authors.Where(a => a.Id == id).Select(a => new AuthorWithBooksDTO()
             {
+                Id = a.Id,
                 FirstName = a.FirstName,
                 LastName = a.LastName,
                 BookTitles = a.Book_Authors.Select(ba => ba.Book.Title).ToList()

@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations;
 namespace my_books_data.DTOs.BookDTOs
 {
     public class BookDTO
-    { 
+    {
+        public int Id { get; set; }
         public string Title { get; set; }
 
         [DataType(DataType.MultilineText)]
@@ -22,6 +23,7 @@ namespace my_books_data.DTOs.BookDTOs
 
     public class BookWithAditionalInfos
     {
+        public int Id { get; set; }
         public string Title { get; set; }
 
         [DataType(DataType.MultilineText)]
@@ -56,6 +58,7 @@ namespace my_books_data.DTOs.BookDTOs
 
     public class UpdateBookDTO
     {
+        public int Id { get; set; }
         public string Title { get; set; }
 
         [DataType(DataType.MultilineText)]

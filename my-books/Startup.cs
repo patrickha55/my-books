@@ -9,6 +9,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using my_books_application.Services.AuthorServices;
+using my_books_application.Services.Book_AuthorServices;
+using my_books_application.Services.BookServices;
 using my_books_application.Services.PublisherServices;
 using my_books_data;
 using System;
@@ -41,6 +43,8 @@ namespace my_books
 
             services.AddTransient<IAuthorService, AuthorService>();
             services.AddTransient<IPublisherService, PublisherService>();
+            services.AddTransient<IBookService, BookService>();
+            services.AddTransient<IBook_AuthorService, Book_AuthorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

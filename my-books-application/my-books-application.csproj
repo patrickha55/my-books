@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\BookServices\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\my-books-data\my-books-data.csproj" />
   </ItemGroup>
 
