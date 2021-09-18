@@ -4,6 +4,7 @@ namespace my_books_data.DTOs.AuthorDTOs
 {
     public class AuthorDTO
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName => $"{FirstName} {LastName}";
@@ -11,6 +12,7 @@ namespace my_books_data.DTOs.AuthorDTOs
 
     public class AuthorWithBooksDTO
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName => $"{FirstName} {LastName}";

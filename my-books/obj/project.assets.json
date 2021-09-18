@@ -5981,19 +5981,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\diepv\\.nuget\\packages\\": {}
+    "C:\\Users\\Phat\\.nuget\\packages\\": {},
+    "E:\\Softwares\\shared-compnentsVSC2019\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books\\my-books.csproj",
+      "projectUniqueName": "C:\\Users\\Phat\\source\\repos\\AspNetProjects\\Core\\my-books\\my-books\\my-books.csproj",
       "projectName": "my-books",
-      "projectPath": "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books\\my-books.csproj",
-      "packagesPath": "C:\\Users\\diepv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books\\obj\\",
+      "projectPath": "C:\\Users\\Phat\\source\\repos\\AspNetProjects\\Core\\my-books\\my-books\\my-books.csproj",
+      "packagesPath": "C:\\Users\\Phat\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Phat\\source\\repos\\AspNetProjects\\Core\\my-books\\my-books\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "E:\\Softwares\\shared-compnentsVSC2019\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\diepv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Phat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6007,11 +6012,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books-application\\my-books-application.csproj": {
-              "projectPath": "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books-application\\my-books-application.csproj"
+            "C:\\Users\\Phat\\source\\repos\\AspNetProjects\\Core\\my-books\\my-books-application\\my-books-application.csproj": {
+              "projectPath": "C:\\Users\\Phat\\source\\repos\\AspNetProjects\\Core\\my-books\\my-books-application\\my-books-application.csproj"
             },
-            "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books-data\\my-books-data.csproj": {
-              "projectPath": "C:\\Users\\diepv\\source\\repos\\ProjectAspNet\\Core\\my-books\\my-books-data\\my-books-data.csproj"
+            "C:\\Users\\Phat\\source\\repos\\AspNetProjects\\Core\\my-books\\my-books-data\\my-books-data.csproj": {
+              "projectPath": "C:\\Users\\Phat\\source\\repos\\AspNetProjects\\Core\\my-books\\my-books-data\\my-books-data.csproj"
             }
           }
         }
@@ -6059,7 +6064,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

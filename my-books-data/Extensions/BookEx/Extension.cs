@@ -12,6 +12,7 @@ namespace my_books_data.Extensions.BookEx
     {
         public static BookDTO AsDto(this Book book) => new BookDTO
         {
+            Id = book.Id,
             Title = book.Title,
             Description = book.Description,
             IsRead = book.IsRead,
