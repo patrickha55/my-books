@@ -3,6 +3,7 @@ using my_books_data;
 using my_books_data.DTOs.AuthorDTOs;
 using my_books_data.Entities;
 using my_books_data.Extensions.AuthorEx;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace my_books_application.Services.AuthorServices
             this.applicationContext = applicationContext;
         }
 
-        public async Task CreateAuthor(CreateAuthorDTO author)
+        public async Task<Author> CreateAuthor(CreateAuthorDTO author)
         { 
             Author _author = new()
             {
@@ -29,10 +30,10 @@ namespace my_books_application.Services.AuthorServices
             await applicationContext.Authors.AddAsync(_author);
             await applicationContext.SaveChangesAsync();
 
-            await Task.CompletedTask;
+            return _author;
         }
 
-        public async Task CreateAuthorWithBooks(CreateAuthorWithBooksDTO author)
+        public async Task<Author> CreateAuthorWithBooks(CreateAuthorWithBooksDTO author)
         {
             if (author is not null)
             {
@@ -56,22 +57,13 @@ namespace my_books_application.Services.AuthorServices
                     await applicationContext.Book_Authors.AddAsync(book_Author);
                     await applicationContext.SaveChangesAsync();
                 }
+
+                return await Task.FromResult(_author);
             }
-
-            await Task.CompletedTask;
-        }
-
-        public async Task DeleteAuthorAsync(int id)
-        {
-            var author = await applicationContext.Authors.FirstOrDefaultAsync(a => a.Id == id);
-
-            if (author is not null)
+            else
             {
-                applicationContext.Authors.Remove(author);
-                await applicationContext.SaveChangesAsync();
+                throw new Exception();
             }
-
-            await Task.CompletedTask;
         }
 
 
@@ -114,27 +106,36 @@ namespace my_books_application.Services.AuthorServices
             return await author.FirstOrDefaultAsync();
         }
 
-        public async Task UpdateAuthor(UpdateAuthorDTO author)
+        public async Task<Author> UpdateAuthor(UpdateAuthorDTO author)
         {
-            if(author is not null)
+            var _author = await applicationContext.Authors.FirstOrDefaultAsync(a => a.Id == author.Id);
+
+            if (_author is null)
             {
-                var _author = await applicationContext.Authors.FirstOrDefaultAsync(a => a.Id == author.Id);
+                throw new KeyNotFoundException($"Author with id {author.Id} doest not exist.");
+            }
+            else
+            {
                 _author.FirstName = author.FirstName;
                 _author.LastName = author.LastName;
 
                 applicationContext.Authors.Update(_author);
                 await applicationContext.SaveChangesAsync();
-            }
 
-            await Task.CompletedTask;
+                return _author;
+            }
         }
 
-        public async Task UpdateAuthorWithBooks(UpdateAuthorWithBooksDTO author)
+        public async Task<Author> UpdateAuthorWithBooks(UpdateAuthorWithBooksDTO author)
         {
-            if (author is not null)
-            {
-                var _author = await applicationContext.Authors.FirstOrDefaultAsync(a => a.Id == author.Id);
+            var _author = await applicationContext.Authors.FirstOrDefaultAsync(a => a.Id == author.Id);
 
+            if (_author is null)
+            {
+                throw new KeyNotFoundException($"Author with id {author.Id} doest not exist.");
+            }
+            else
+            {
                 _author.FirstName = author.FirstName;
                 _author.LastName = author.LastName;
 
@@ -159,6 +160,23 @@ namespace my_books_application.Services.AuthorServices
 
                 applicationContext.Authors.Update(_author);
                 await applicationContext.SaveChangesAsync();
+
+                return await Task.FromResult(_author);
+            }
+        }
+
+        public async Task DeleteAuthorAsync(int id)
+        {
+            var author = await applicationContext.Authors.FirstOrDefaultAsync(a => a.Id == id);
+
+            if (author is not null)
+            {
+                applicationContext.Authors.Remove(author);
+                await applicationContext.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception($"The author with id {id} does not exist.");
             }
 
             await Task.CompletedTask;

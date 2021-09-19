@@ -5981,8 +5981,13 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
+    "C:\\Users\\diepv\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
     "C:\\Users\\Phat\\.nuget\\packages\\": {},
     "E:\\Softwares\\shared-compnentsVSC2019\\NuGetPackages": {}
+>>>>>>> 561fd070edbc9b9d9a56c757eabb79104a0989ed
   },
   "project": {
     "version": "1.0.0",
@@ -5994,10 +5999,17 @@
       "outputPath": "C:\\Users\\Phat\\source\\repos\\AspNetProjects\\Core\\my-books\\my-books\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+<<<<<<< HEAD
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\diepv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
         "E:\\Softwares\\shared-compnentsVSC2019\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\Phat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 561fd070edbc9b9d9a56c757eabb79104a0989ed
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

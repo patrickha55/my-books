@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "hMfIpfHlVee8BNmV4pM6rXswKzdEOYANj0jKZLXmgnCxYpKOU/3Co7oXsyyXuUXI+eVmcVeU7KTlEom1H5j8aQ==",
+=======
   "dgSpecHash": "tCXIlTKhpFrs+2xxI96xSsklxxVO7yAs0duJDIGPoFhcDjM/9ruuAP8kO2dn8d0lCpa1RPxlDfkUJGGfTXgtQg==",
+>>>>>>> 561fd070edbc9b9d9a56c757eabb79104a0989ed
   "success": true,
   "projectFilePath": "C:\\Users\\Phat\\source\\repos\\AspNetProjects\\Core\\my-books\\my-books-application\\my-books-application.csproj",
   "expectedPackageFiles": [

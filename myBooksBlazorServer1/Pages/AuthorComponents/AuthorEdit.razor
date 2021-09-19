@@ -1,0 +1,53 @@
+﻿@page "/authorEdit/{id:int}"
+@inject IAuthorService AuthorService
+@inject NavigationManager NavManager
+
+<h3>Author Edit</h3>
+
+@if (author is not null)
+{
+    <div class="container">
+        <EditForm Model="@author" OnValidSubmit="updateAuthor">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label>First Name</label>
+                <InputText @bind-Value="author.FirstName" required />
+                <ValidationMessage For="() => author.FirstName" />
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <InputText @bind-Value="author.LastName" required />
+                <ValidationMessage For="() => author.LastName" />
+            </div>
+            <div>
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </EditForm>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">Some thing went wrong!</div>
+}
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    private UpdateAuthorDTO authorUpdate = new UpdateAuthorDTO();
+    private AuthorDTO author = new();
+
+    protected async override Task OnParametersSetAsync()
+    {
+        if (id != 0) author = await AuthorService.GetAuthorAsync(id);
+    }
+
+    private async Task updateAuthor()
+    {
+        authorUpdate.Id = author.Id;
+        authorUpdate.FirstName = author.FirstName;
+        authorUpdate.LastName = author.LastName;
+        await AuthorService.UpdateAsync(authorUpdate);
+
+        NavManager.NavigateTo("/authors");
+    }
+}

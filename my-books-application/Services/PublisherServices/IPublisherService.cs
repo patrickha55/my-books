@@ -10,12 +10,12 @@ namespace my_books_application.Services.PublisherServices
 {
     public interface IPublisherService
     {
-        Task<IEnumerable<Publisher>> GetPublishersAsync();
+        Task<IEnumerable<PublisherDTO>> GetPublishersAsync();
         Task<IEnumerable<PublisherWithBooksDTO>> GetPublishersWithBooksAsync();
-        Task<Publisher> GetPublisherAsync(int id);
+        Task<PublisherDTO> GetPublisherAsync(int id);
         Task<PublisherWithBooksDTO> GetPublisherWithBooksAsync(int id);
-        Task CreateAsync(Publisher publisher);
-        Task UpdateAsync(Publisher publisher);
-        Task DeleteAsync(Publisher publisher);
+        Task<Publisher> CreateAsync(CreatePublisherDTO publisherDTO);
+        Task<Publisher> UpdateAsync(UpdatePublisherDTO publisherDTO);
+        Task DeleteAsync(int id);
     }
 }
