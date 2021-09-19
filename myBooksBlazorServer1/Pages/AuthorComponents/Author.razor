@@ -1,0 +1,88 @@
+﻿@page "/authors"
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@inject IAuthorService AuthorService
+
+<h3>Author</h3>
+<h5><a href="/createAuthor">Create Author</a></h5>
+
+@if (getAuthorsError)
+{
+    <span class="alert alert-danger">Unable to get authors from api.</span>
+}
+else
+{
+    <div class="container">
+        <form @onsubmit="SearchAuthor">
+            <div class="form-group">
+                <label>
+                    Search Author by ID
+                </label>
+                <input class="form-control" type="number" @bind-value="id" min="1" />
+            </div>
+            <input type="submit" class="btn btn-dark" value="Search" />
+        </form>
+    </div>
+    <div>
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var author in authors)
+                {
+                    <tr>
+                        <td><a href="author/@author.Id">@author.Id</a></td>
+                        <td>@author.FirstName</td>
+                        <td>@author.LastName</td>
+                        <td><a class="btn btn-warning" href="/authorEdit/@author.Id">Edit</a></td>
+                        <td><button class="btn btn-danger" @onclick="@(() => deleteAuthor(author.Id))">Delete</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@code {
+    private IEnumerable<AuthorDTO> authors = Array.Empty<AuthorDTO>();
+    private int id = 0;
+    private bool getAuthorsError;
+    private bool shouldRender;
+
+    protected override bool ShouldRender()
+    {
+        return shouldRender;
+    }
+
+    private void SearchAuthor()
+    {
+        if (id != 0)
+            authors = authors.Where(a => a.Id == id);
+    }
+
+    private async Task deleteAuthor(int id)
+    {
+        await AuthorService.DeleteAsync(id);
+        shouldRender = true;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        authors = await AuthorService.GetAuthorsAsync();
+
+        if (authors is not null)
+        {
+            shouldRender = true;
+        }
+        else
+        {
+            getAuthorsError = true;
+        }
+    }
+}

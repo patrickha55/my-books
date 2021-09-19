@@ -1,0 +1,49 @@
+﻿@page "/author/{id:int}"
+@inject IAuthorService AuthorService
+
+<h3>Author Detail</h3>
+
+@if (getAuthorsError)
+{
+    <span class="alert alert-danger">Unable to get authors from api.</span>
+}
+else
+{
+    <div class="container">
+        <h4>@Author.FullName</h4>
+        <ul>
+            <li>ID: @Author.Id</li>
+        </ul>
+        <div>
+            <a href="/authors">Back to List</a>
+        </div>
+    </div>
+
+}
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+    public AuthorDTO Author { get; set; } = new();
+    private bool getAuthorsError;
+    private bool shouldRender;
+
+    protected override bool ShouldRender()
+    {
+        return shouldRender;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id != 0) Author = await AuthorService.GetAuthorAsync(id);
+
+        if (Author is null)
+        {
+            getAuthorsError = true;
+        }
+        else
+        {
+            shouldRender = true;
+        }
+    }
+}

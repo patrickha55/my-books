@@ -1,0 +1,15 @@
+﻿@page "/authorDelete/{id:int}"
+@inject IAuthorService AuthorService
+@inject NavigationManager NavManager
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id != 0) await AuthorService.DeleteAsync(id);
+
+        NavManager.NavigateTo("/authors");
+    }
+}
