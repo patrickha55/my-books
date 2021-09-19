@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using my_books_application.Services.AuthorServices;
 using my_books_data.DTOs.AuthorDTOs;
+using my_books_data.Extensions.AuthorEx;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,11 +60,11 @@ namespace my_books.Controllers
 
         // POST api/<AuthorsController>
         [HttpPost]
-        public async Task<ActionResult<AuthorDTO>> Post([FromBody] CreateAuthorDTO author)
+        public async Task<ActionResult> Post([FromBody] CreateAuthorDTO author)
         {
-            await authorService.CreateAuthor(author);
+            var createdAuthor = await authorService.CreateAuthor(author);
 
-            return Ok();
+            return CreatedAtAction(nameof(Post), createdAuthor);
         }
 
         // POST api/<AuthorsController>/create-author-with-books
@@ -79,35 +80,52 @@ namespace my_books.Controllers
         [HttpPut("update-author")]
         public async Task<ActionResult> Put([FromBody] UpdateAuthorDTO author)
         {
-            if (author is null) return BadRequest();
+            try
+            {
+                var updatedAuthor = await authorService.UpdateAuthor(author);
 
-            await authorService.UpdateAuthor(author);
-
-            return Ok();
+                return CreatedAtAction(nameof(Put), updatedAuthor);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT api/<AuthorsController>/
         [HttpPut("update-author-with-books")]
-        public async Task<ActionResult> Put([FromBody] UpdateAuthorWithBooksDTO author)
+        public async Task<ActionResult<AuthorDTO>> Put([FromBody] UpdateAuthorWithBooksDTO author)
         {
-            if (author is null) return BadRequest();
+            try
+            {
+                var _author = await authorService.UpdateAuthorWithBooks(author);
 
-            await authorService.UpdateAuthorWithBooks(author);
-
-            return Ok();
+                return CreatedAtAction(nameof(Put), _author.AsAuthorDto());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<AuthorsController>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
-            var author = await authorService.GetAuthor(id);
+            try
+            {
+                await authorService.DeleteAuthorAsync(id);
 
-            if (author is null) return NotFound();
-
-            await authorService.DeleteAuthorAsync(id);
-
-            return Ok();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

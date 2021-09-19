@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using my_books_application.Exceptions;
 using my_books_application.Services.PublisherServices;
 using my_books_data.DTOs.PublisherDTOs;
 using my_books_data.Entities;
@@ -27,8 +28,7 @@ namespace my_books.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PublisherDTO>>> Get()
         {
-            var publisherDtos = (await publisherService.GetPublishersAsync()).Select(p => p.AsDto()).ToList();
-            return Ok(publisherDtos);
+            return Ok(await publisherService.GetPublishersAsync());
         }
 
         // GET: api/<PublishersController>/publisher-with-books
@@ -46,7 +46,7 @@ namespace my_books.Controllers
 
             if (publisher is null) return NotFound();
 
-            return Ok(publisher.AsDto());
+            return Ok(publisher);
         }
 
         // GET api/<PublishersController>/publisher-with-books/5
@@ -64,39 +64,57 @@ namespace my_books.Controllers
         [HttpPost]
         public async Task<ActionResult<PublisherDTO>> Post([FromBody] CreatePublisherDTO publisherDTO)
         {
-            Publisher publisher = new() { Name = publisherDTO.Name };
+            try
+            {
+                var publisher = await publisherService.CreateAsync(publisherDTO);
 
-            await publisherService.CreateAsync(publisher);
+                return CreatedAtAction(nameof(Get), publisher.AsDto());
+            }
+            catch (PublisherNameException ex)
+            {
+                return BadRequest($"{ex.Message}, Publisher name: {ex.PublisherName}");
+            }
+            catch (Exception ex)
+            {
 
-            return CreatedAtAction(nameof(Get), new { Id = publisher.Id }, publisher.AsDto());
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT api/<PublishersController>/5
         [HttpPut]
         public async Task<ActionResult<PublisherDTO>> Put([FromBody] UpdatePublisherDTO publisherDTO)
         {
-            var publisher = await publisherService.GetPublisherAsync(publisherDTO.Id);
+            try
+            {
+                var publisher = await publisherService.UpdateAsync(publisherDTO);
 
-            if (publisher is null) return NotFound();
-
-            publisher.Name = publisherDTO.Name;
-
-            await publisherService.UpdateAsync(publisher);
-
-            return CreatedAtAction(nameof(Get), new { Id = publisher.Id }, publisher.AsDto());
+                return CreatedAtAction(nameof(Get), publisher.AsDto());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<PublishersController>/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteAsync(int id)
         {
-            var publisher = await publisherService.GetPublisherAsync(id);
+            try
+            {
+                await publisherService.DeleteAsync(id);
 
-            if (publisher is null) return NotFound();
-
-            await publisherService.DeleteAsync(publisher);
-
-            return RedirectToAction(nameof(Get));
+                return RedirectToAction(nameof(Get));
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
