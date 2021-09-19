@@ -1,8 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\diepv\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\diepv\\.nuget\\packages"
+      "C:\\Users\\Phat\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Phat\\.nuget\\packages",
+      "E:\\Softwares\\shared-compnentsVSC2019\\NuGetPackages"
     ]
   }
 }
