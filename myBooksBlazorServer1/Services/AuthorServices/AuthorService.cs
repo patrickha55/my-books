@@ -13,7 +13,6 @@ namespace myBooksBlazorServer1.Services.AuthorServices
     {
         private readonly IHttpClientFactory clientFactory;
         private readonly JsonSerializerOptions options;
-        private readonly string uri = "http://localhost:15203/api/authors/";
 
         public AuthorService(IHttpClientFactory clientFactory)
         {
@@ -23,8 +22,8 @@ namespace myBooksBlazorServer1.Services.AuthorServices
 
         public async Task<AuthorDTO> GetAuthorAsync(int id)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, uri + $"{id}");
-            var client = clientFactory.CreateClient();
+            var request = new HttpRequestMessage(HttpMethod.Get,$"authors/{id}");
+            var client = clientFactory.CreateClient("bookApi");
             var response = await client.SendAsync(request);
 
             if (response.IsSuccessStatusCode)
@@ -40,8 +39,8 @@ namespace myBooksBlazorServer1.Services.AuthorServices
 
         public async Task<IEnumerable<AuthorDTO>> GetAuthorsAsync()
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, uri);
-            var client = clientFactory.CreateClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "authors/");
+            var client = clientFactory.CreateClient("bookApi");
             var response = await client.SendAsync(request);
 
             if (response.IsSuccessStatusCode)
@@ -58,14 +57,14 @@ namespace myBooksBlazorServer1.Services.AuthorServices
         {
             if (author is not null)
             {
-                var client = clientFactory.CreateClient();
+                var client = clientFactory.CreateClient("bookApi");
                 var authorJson = new StringContent(
                     JsonSerializer.Serialize(author, options),
                     encoding: Encoding.UTF8,
                     "application/json"
                     );
 
-                using var httpResponse = await client.PostAsync(uri, authorJson);
+                using var httpResponse = await client.PostAsync("authors/", authorJson);
 
                 httpResponse.EnsureSuccessStatusCode();
             }
@@ -75,14 +74,14 @@ namespace myBooksBlazorServer1.Services.AuthorServices
         {
             if (author is not null)
             {
-                var client = clientFactory.CreateClient();
+                var client = clientFactory.CreateClient("bookApi");
                 var authorJson = new StringContent(
                     JsonSerializer.Serialize(author, options),
                     encoding: Encoding.UTF8,
                     "application/json"
                     );
 
-                using var httpResponse = await client.PutAsync(uri + "update-author/", authorJson);
+                using var httpResponse = await client.PutAsync("authors/update-author/", authorJson);
 
                 httpResponse.EnsureSuccessStatusCode();
             }
@@ -92,8 +91,8 @@ namespace myBooksBlazorServer1.Services.AuthorServices
         {
             if (id != 0)
             {
-                var client = clientFactory.CreateClient();
-                using var httpResponse = await client.DeleteAsync(uri + $"{id}");
+                var client = clientFactory.CreateClient("bookApi");
+                using var httpResponse = await client.DeleteAsync("authors/" + $"{id}");
 
                 httpResponse.EnsureSuccessStatusCode();
             }
