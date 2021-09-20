@@ -43,7 +43,7 @@ namespace myBooksBlazorServer1
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddSingleton<WeatherForecastService>();
             services.AddScoped<IAuthorService, AuthorService>();
-            services.AddHttpClient();
+            services.AddHttpClient(name: "bookApi", configureClient: c => { c.BaseAddress = new Uri("http://localhost:15203/api/"); });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

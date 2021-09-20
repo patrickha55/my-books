@@ -108,9 +108,9 @@ C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\myBooksBlazorServer1.genruntimeconfig.cache
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\RazorDeclaration\Pages\AuthorComponents\AuthorDetail.razor.g.cs
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\Razor\Pages\AuthorComponents\AuthorDetail.razor.g.cs
-C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\RazorDeclaration\Services\AuthorServices\CreateAuthor.razor.g.cs
-C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\Razor\Services\AuthorServices\CreateAuthor.razor.g.cs
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\RazorDeclaration\Pages\AuthorComponents\AuthorDelete.razor.g.cs
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\Razor\Pages\AuthorComponents\AuthorDelete.razor.g.cs
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\RazorDeclaration\Pages\AuthorComponents\AuthorEdit.razor.g.cs
 C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\Razor\Pages\AuthorComponents\AuthorEdit.razor.g.cs
+C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\RazorDeclaration\Pages\AuthorComponents\CreateAuthor.razor.g.cs
+C:\Users\diepv\source\repos\ProjectAspNet\Core\my-books\myBooksBlazorServer1\obj\Debug\net5.0\Razor\Pages\AuthorComponents\CreateAuthor.razor.g.cs

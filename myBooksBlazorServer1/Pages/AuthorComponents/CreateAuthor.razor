@@ -1,0 +1,33 @@
+﻿@page "/createAuthor"
+@inject IAuthorService AuthorService
+@inject NavigationManager NavManager
+
+<h3>Create Author</h3>
+
+<div class="container">
+    <EditForm Model="@author" OnValidSubmit="createAuthor">
+        <DataAnnotationsValidator />
+        <ValidationSummary></ValidationSummary>
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-text" @bind-value="author.FirstName" required />
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-text" @bind-value="author.LastName" required />
+        </div>
+        <div>
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </EditForm>
+</div>
+
+@code {
+    public CreateAuthorDTO author { get; set; } = new();
+
+    private async Task createAuthor()
+    {
+        if (author is not null) await AuthorService.CreateAsync(author);
+        NavManager.NavigateTo("/authors");
+    }
+}

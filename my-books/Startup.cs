@@ -22,6 +22,7 @@ namespace my_books
 {
     public class Startup
     {
+        private readonly string _policyName = "MyWebApiPolicy";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,6 +33,15 @@ namespace my_books
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o =>
+            {
+                o.AddPolicy(name: _policyName,
+                            builder =>
+                            {
+                                builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                            }
+                );
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -60,6 +70,8 @@ namespace my_books
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(_policyName);
 
             app.UseAuthorization();
 

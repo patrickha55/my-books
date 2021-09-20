@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace my_books_data.DTOs.AuthorDTOs
 {
@@ -22,7 +23,11 @@ namespace my_books_data.DTOs.AuthorDTOs
 
     public class CreateAuthorDTO
     {
+        [Required]
+        [StringLength(maximumLength: 100, MinimumLength = 2)]
         public string FirstName { get; set; }
+        [Required]
+        [StringLength(maximumLength: 100, MinimumLength = 2)]
         public string LastName { get; set; }
     }
 
@@ -36,7 +41,11 @@ namespace my_books_data.DTOs.AuthorDTOs
     public class UpdateAuthorDTO
     {
         public int Id { get; set; }
+        [Required]
+        [StringLength(maximumLength: 100, MinimumLength = 2)]
         public string FirstName { get; set; }
+        [Required]
+        [StringLength(maximumLength: 100, MinimumLength = 2)]
         public string LastName { get; set; }
     }
     
