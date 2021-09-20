@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "my-books-application", "my-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "my-books-client", "my-books-client\my-books-client.csproj", "{0FFE5FCE-AD43-4CEC-8EDF-43AD7A4BFB4C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myBooksBlazorWASAP", "myBooksBlazorWASAP\myBooksBlazorWASAP.csproj", "{30AEBBC6-5A99-4A71-99A9-1BBB264EF10B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "myBooksBlazorServer1", "myBooksBlazorServer1\myBooksBlazorServer1.csproj", "{2E572958-D844-4929-8E6F-9776BAB71904}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{0FFE5FCE-AD43-4CEC-8EDF-43AD7A4BFB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FFE5FCE-AD43-4CEC-8EDF-43AD7A4BFB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FFE5FCE-AD43-4CEC-8EDF-43AD7A4BFB4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30AEBBC6-5A99-4A71-99A9-1BBB264EF10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30AEBBC6-5A99-4A71-99A9-1BBB264EF10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30AEBBC6-5A99-4A71-99A9-1BBB264EF10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30AEBBC6-5A99-4A71-99A9-1BBB264EF10B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E572958-D844-4929-8E6F-9776BAB71904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E572958-D844-4929-8E6F-9776BAB71904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E572958-D844-4929-8E6F-9776BAB71904}.Release|Any CPU.ActiveCfg = Release|Any CPU
